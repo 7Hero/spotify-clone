@@ -1,16 +1,16 @@
-import { signIn } from 'next-auth/react'
+import { getProviders, signIn } from 'next-auth/react'
 
 
-function Login() {
-
+function Login({providers}) {
+  console.log(providers)
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <button
       onAnimationEnd={(e) => { e.target.blur()}}
-      onClick={() => signIn()}
+      onClick={() => signIn(providers.spotify.id, { callbackUrl: '/' } )}
       className='bg-green-500 py-2 px-3 rounded-xl focus:animate-click shadow-lg transition-all duration-150'>
         <p className="text-white font-sans font-semibold">
-          Login with Spotify
+          Login with {providers['spotify'].name}
         </p>
       </button>
     </div>
@@ -18,3 +18,10 @@ function Login() {
 }
 
 export default Login
+
+export async function getServerSideProps(ctx) {
+  const providers = await getProviders()
+  return {
+    props: {providers}
+  }
+}
