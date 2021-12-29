@@ -6,7 +6,7 @@ async function middleware(req,res){
   // const token = await getSession( { req });
   //next-auth.session-token
   const { cookies } = req;
-  const token = cookies["next-auth.session-token"];
+  const token = cookies["__Secure-next-auth.session-token"];
   // console.log(cookies["next-auth.session-token"])
   // const token = await getToken({ req, secret: 'vasea' });
   const decryptedtoken = await decode({ token, secret: 'vasea' })
