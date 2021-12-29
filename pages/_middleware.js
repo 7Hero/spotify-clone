@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 // console.log(decryptedtoken?.name);
 
 async function middleware(req,res){
+  console.log(process.env.NEXTAUTH_URL);
   // const token = await getToken({ req, secret: 'vasea' });
   const token = await getToken({req, secret: 'vasea'});
   const { pathname } = req.nextUrl;
@@ -20,3 +21,4 @@ async function middleware(req,res){
 }
 
 export default middleware;
+
