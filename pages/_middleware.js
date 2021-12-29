@@ -5,7 +5,7 @@ async function middleware(req,res){
 
   const token = await getToken({ req,secret: process.env.JWT_SECRET });
 
-  const pathname = req.url;
+  const pathname = req.nextUrl;
   console.log(token,pathname)
   if( pathname === '/login' && token) return NextResponse.redirect("/");
 
