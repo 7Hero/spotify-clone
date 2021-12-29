@@ -1,17 +1,15 @@
-import { decode, getToken } from "next-auth/jwt";
-import { getSession } from "next-auth/react"
+// import { decode, getToken } from "next-auth/jwt";
+import { getToken } from "../lib/token";
 import { NextResponse } from "next/server";
 
+// const decryptedtoken = await decode({ token, secret: 'vasea' })
+// console.log(decryptedtoken?.name);
+
 async function middleware(req,res){
-  // const token = await getSession( { req });
-  //next-auth.session-token
-  const { cookies } = req;
-  const token = cookies["__Secure-next-auth.session-token"];
-  // console.log(cookies["next-auth.session-token"])
   // const token = await getToken({ req, secret: 'vasea' });
-  const decryptedtoken = await decode({ token, secret: 'vasea' })
-  console.log(decryptedtoken?.name);
+  const token = await getToken({req, secret: 'vasea'});
   const { pathname } = req.nextUrl;
+  console.log(token)
   if( pathname === '/login' && token) return NextResponse.redirect("/");
 
   if( token || pathname.includes('/api/auth')) return NextResponse.next()
