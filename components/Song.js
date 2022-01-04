@@ -6,7 +6,7 @@ function Song({track,id}) {
         <div key={track.id} className=" hover:bg-white hover:bg-opacity-20 rounded-xl transition duration-75 grid mx-8 px-4 grid-cols-2 text-[#b3b3b3] text-sm font-semibold my-2 py-2">
             <div className = "flex items-center space-x-4">
                 <p>{id+1}</p>
-                <img src={track.track.album.images[0]?.url ?? null} className="w-10 h-10"/>
+                <img src={track.track.album.images[0]?.url} className="w-10 h-10"/>
                 <div className="m">
                     <p className="text-white">{track?.track.name}</p>
                     <p>{track?.track.artists[0].name}</p>
