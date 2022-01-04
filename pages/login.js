@@ -1,8 +1,8 @@
 import { getProviders, signIn } from 'next-auth/react'
-
+import { useContext } from 'react';
 
 function Login({ providers }) {
-  console.log(providers)
+  
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <button

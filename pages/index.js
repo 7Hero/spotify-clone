@@ -1,9 +1,37 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { useSession } from 'next-auth/react'
+import NavLayout from '../layouts/NavLayout'
+import Playlist from '../components/Playlist'
+import { useEffect, useRef, useState } from 'react';
 
-export default function Home() {
+export default function Home( props ) {
+
+  const { data: session, status } = useSession()
+  if(session){
+    return (
+      <div className="text-white">
+        <Playlist/>
+      </div>
+    )
+  }
+
   return (
-   <div className="relative bottom-0">Vasea</div>
+    <>
+     Loading...
+    </>
   )
 }
+
+Home.getLayout = function getLayout(page){
+  return(
+    <NavLayout> 
+      { page }
+    </NavLayout>
+  )
+}
+// export async function getServerSideProps(ctx){
+//   return {
+//     props:{
+//       session: null
+//     }
+//   }
+// }

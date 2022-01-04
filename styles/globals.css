@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-opacity-0 {
+  --tw-bg-opacity: 0;
+}
+.bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
+
+.relative {
+  position: relative;
+}
+.flex-grow{
+  flex-grow: 1;
+}
+.bg-color-transparent {
+  --tw-bg-color: transparent;
+}
+
+.bg-tranparent{
+  background-color: transparent;
+}
+
+.bg-teal-500{
+  background-color: #00796b;
+}
+.bg-indigo-500{
+  background-color: #3f51b5;
+}
+.bg-blue-500{
+  background-color: #2196f3;
+}
+.bg-green-500{
+  background-color: #4caf50;
+}
+.bg-red-500{
+  background-color: #f44336;
+}
+.bg-purple-500{
+  background-color: #9c27b0;
+}
+.bg-pink-500{
+  background-color: #e91e63;
+}
+.bg-teal-500{
+  background-color: #00796b;
+}
+.bg-gray-500{
+  background-color: #9e9e9e;
+}

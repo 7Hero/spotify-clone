@@ -2,12 +2,14 @@ import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/spotify"
 import spotifyApi, { LOGIN_URL } from "../../../lib/spotify"
 
+
 const refreshToken = async (token) => {
   try {
-      spotifyApi().setAccessToken(token.accessToken);
-      spotifyApi().setRefreshToken(token.refreshToken);
-
-      const { body: newToken } = await spotifyApi.refreshAccessToken();
+      const spotifyWebApi = spotifyApi()
+      spotifyWebApi.setAccessToken(token.accessToken);
+      spotifyWebApi.setRefreshToken(token.refreshToken);
+      const { body: newToken } = await spotifyWebApi.refreshAccessToken();
+      console.log("Refreshed Token Successfully");
       return {
           ...token,
           accessToken: newToken.access_token,
@@ -19,7 +21,7 @@ const refreshToken = async (token) => {
       console.error(e);
       return {
           ...token,
-          error:"Could not refresh token",
+          error:"CouldNotRefreshToken",
       }
   }
 }
@@ -30,6 +32,7 @@ export default NextAuth({
     GithubProvider({
       clientId: process.env.SPOTIFY_ID,
       clientSecret: process.env.SPOTIFY_SECRET,
+      authorization: LOGIN_URL,
     }),
     // ...add more providers here
   ],
