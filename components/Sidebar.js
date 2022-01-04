@@ -17,10 +17,12 @@ function Sidebar() {
   const spotifyWebApi = useSpotify()
 
   useEffect(() => {
-    if(spotifyWebApi.getAccessToken()){
-      spotifyWebApi.getUserPlaylists(session?.user.id).then(data => {
-        setPlaylist(data.body.items)
-      });
+    if(session){
+      if(spotifyWebApi.getAccessToken()){
+        spotifyWebApi.getUserPlaylists(session?.user.id).then(data => {
+          setPlaylist(data.body.items)
+        });
+      }
     }
   }, [status]);
 

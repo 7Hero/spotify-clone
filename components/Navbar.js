@@ -35,7 +35,7 @@ function Navbar() {
         }
     }
     return (
-        <div className={`py-4 px-8 transition duration-300 text-white flex bg-${scrollPosition > 220 ? color : 'transparent'} absolute w-full text-sm font-semibold items-center`}>
+        <div className={`py-4 px-8 transition duration-150 text-white flex bg-${scrollPosition > 220 ? color : 'transparent'} absolute w-full text-sm font-semibold items-center`}>
             <button onClick={() => handleClick({ action: "left" })} className="bg-black rounded-full p-[4px] bg-opacity-40 mr-4">
             <svg focusable="false" height="24" width="24" viewBox="0 0 24 24" className="stroke-white" ><polyline points="16 4 7 12 16 20" fill="none"></polyline></svg>
             </button>
