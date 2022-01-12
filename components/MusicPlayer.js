@@ -163,9 +163,9 @@ function MusicPlayer() {
         
         { /* leftside */}
         <div className="flex w-[30%] ">
-          <img src={playbackState?.item?.album.images[2].url} className='w-14 h-14'/>
+          <img src={is_active ? current_track.album.images[0].url : playbackState?.item?.album.images[2].url} className='w-14 h-14'/>
           <div className='px-4 flex flex-col justify-center'>
-            <p className='text-white text-sm font-sans'> { is_active ? current_track?.name : null}</p>
+            <p className='text-white text-sm font-sans'> { is_active ? current_track?.name : playbackState?.item?.name }</p>
             <div className='flex'>
               <h1 className='text-[rgb(179,179,179)] text-xs font-sans'> {is_active ? current_track?.artists.map( artist => artist.name ).join(", ") :playbackState?.item?.artists.map( artist => artist.name ).join(", ")} </h1>
             </div>
