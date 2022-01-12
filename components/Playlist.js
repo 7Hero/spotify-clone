@@ -22,11 +22,11 @@ function Playlist() {
     const playlistRef = useRef(null);
     const { activeColor: color } = useSelector(state => state.scroll);
     const spotifyWebApi = useSpotify();
-    
+    // Changes the color of the Playlist at the top.
     useEffect(() => {
       dispatch(updateActiveColor(colors[Math.floor(Math.random() * colors.length)]));
     },[playlistId]);
-    
+    // Updates the playlist data when the current playlistId changes.
     useEffect( () => {
       if(spotifyWebApi.getAccessToken()){
         spotifyWebApi.getPlaylist(playlistId)
@@ -36,6 +36,7 @@ function Playlist() {
       }
     },[playlistId]);
     // console.log("Playlist Data: ",playlistData)
+    // Adds the eventListener to the playlist element.
     useEffect(()=>{
        playlistRef.current.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -43,7 +44,7 @@ function Playlist() {
          playlistRef.current.removeEventListener('scroll', handleScroll)
         };
     },[])
-
+    // Updates the scroll position when the playlist is scrolled.
     const handleScroll = () => {
       dispatch(updateScrollPosition(playlistRef.current?.scrollTop));
     };

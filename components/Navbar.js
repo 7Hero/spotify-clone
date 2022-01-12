@@ -14,10 +14,12 @@ function Navbar() {
     const {data: session, status} = useSession();
     const { scrollPosition, activeColor } = useSelector(state => state.scroll)
     const [color, setColor] = useState(activeColor);
+
     useEffect(()=>{
         setColor(activeColor.split("-")[1]+"-"+activeColor.split("-")[2])
-        console.log( activeColor );
+        // console.log( activeColor );
     },[activeColor])
+
     const handleClick = ({ action }) => {
         switch(action){
             case "left":

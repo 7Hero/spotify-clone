@@ -54,7 +54,7 @@ function Sidebar() {
       {/* Playelist */}
       <div className='text-[#b3b3b3] font-normal mt-1'>
         {playlist.map((el, i) => <p key={el.id} onClick={() => dispatch(updatePlaylistId(el.id))} className="transition duration-150 overflow-hidden text-ellipsis whitespace-nowrap hover:text-white cursor-pointer mx-6 py-2"> {el.name} </p>)}
-        {playlistId}
+        {/* {playlistId} */}
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ function NavLayout({ children,...props }) {
   return (
     <div className="flex bg-black overflow-hidden h-screen" >
       <Sidebar />
-      <main className="flex-grow relative">
+      <main className="flex-grow relative bg-black">
         <Navbar/>
         { children }
       </main>

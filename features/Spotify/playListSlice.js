@@ -5,6 +5,11 @@ const playlistIdSlice = createSlice({
   initialState: {
     playlistId: "37i9dQZF1EJzo0LfmKU2ED",
     playlistData: null,
+    currentTrackData: {
+      track: null,
+      context: null,
+    },
+    playbackState: null,
   },
   reducers: {
     updatePlaylistId: (state, action) => {
@@ -12,11 +17,17 @@ const playlistIdSlice = createSlice({
     },
     updatePlaylist: (state, action) =>{
       state.playlistData = action.payload;
-    } 
+    },
+    updateTrackData: (state, action) => {
+      state.currentTrackData = action.payload;
+    },
+    updatePlaybackState: (state, action) => {
+      state.playbackState = action.payload;
+    }
   }
 })
 
-export const { updatePlaylist, updatePlaylistId } = playlistIdSlice.actions;
+export const { updatePlaylist, updatePlaylistId, updateTrackData, updatePlaybackState } = playlistIdSlice.actions;
 
 export const store = configureStore({
   reducer: {
