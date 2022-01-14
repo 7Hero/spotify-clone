@@ -78,7 +78,7 @@ function MusicPlayer() {
 
       window.onSpotifyWebPlaybackSDKReady = () => {
           const player = new window.Spotify.Player({
-          name: "Costea Pidar",
+          name: "Vasea Pizdos",
           getOAuthToken: (cb) => {
             cb(session.user.accessToken);
           },

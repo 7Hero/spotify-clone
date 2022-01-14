@@ -28,10 +28,3 @@ Home.getLayout = function getLayout(page){
     </NavLayout>
   )
 }
-// export async function getServerSideProps(ctx){
-//   return {
-//     props:{
-//       session: null
-//     }
-//   }
-// }
