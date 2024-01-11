@@ -207,12 +207,6 @@ function MusicPlayer() {
               className={`w-full h-1 rounded bg-[rgb(179,179,179)]`}
             ></div>
           </div>
-          <div className="w-full h-1 rounded mt-3 bg-[rgb(100,100,100)] overflow-hidden">
-            <div
-              style={{ transform: `translateX(${-100 + progress}%)` }}
-              className={`w-full h-1 rounded bg-[rgb(179,179,179)]`}
-            ></div>
-          </div>
         </div>
         {/* rightside */}
         <div className="w-[30%] flex justify-end">
